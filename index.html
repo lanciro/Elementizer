@@ -146,7 +146,7 @@ let unmatched = {};
 
         const top = document.createElement("div");
         top.className = "top";
-        top.textContent = p.unmatched ? "" : (p.number || "");
+        top.textContent = (p.unmatched && !p.number) ? "" : (p.number || "");
 
         const middle = document.createElement("div");
         middle.className = "middle";
@@ -154,7 +154,7 @@ let unmatched = {};
 
         const bottom = document.createElement("div");
         bottom.className = "bottom";
-        bottom.textContent = p.unmatched ? "" : (p.name || "");
+        bottom.textContent = (p.unmatched && !p.name) ? "" : (p.name || "");
 
         box.appendChild(top);
         box.appendChild(middle);
