@@ -146,15 +146,15 @@ let unmatched = {};
 
         const top = document.createElement("div");
         top.className = "top";
-        top.textContent = p.unmatched ? "" : p.number;
+        top.textContent = p.unmatched ? "" : (p.number || "");
 
         const middle = document.createElement("div");
         middle.className = "middle";
-        middle.textContent = p.symbol;
+        middle.textContent = p.symbol.toUpperCase();
 
         const bottom = document.createElement("div");
         bottom.className = "bottom";
-        bottom.textContent = p.unmatched ? "" : p.name;
+        bottom.textContent = p.unmatched ? "" : (p.name || "");
 
         box.appendChild(top);
         box.appendChild(middle);
