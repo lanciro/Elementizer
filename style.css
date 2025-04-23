@@ -71,6 +71,7 @@ body.dark-mode .btn {
 .fade-in {
   opacity: 0;
   animation: fadeIn 1.2s ease-out forwards;
+  animation-delay: var(--delay, 0s);
 }
 
 @keyframes fadeIn {
