@@ -51,12 +51,25 @@
       border-color: #ff4d4f;
       color: #ff4d4f;
     }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
 
-<h1>Element Name Generator</h1>
-<p>Type a word, and we’ll generate all possible element match paths. Unmatched letters will show too.</p>
+<div class="container">
+  <h1>Element Name Generator</h1>
+  <p>Type a word, and we’ll generate all possible element match paths. Unmatched letters will show too.</p>
+
+  <input type="text" id="wordInput" placeholder="Enter a word">
+  <button onclick="generate()">Generate</button>
+
+  <div id="result"></div>
+</div>
 
 <input type="text" id="wordInput" placeholder="Enter a word">
 <button onclick="generate()">Generate</button>
