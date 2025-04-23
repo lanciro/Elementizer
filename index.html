@@ -153,7 +153,7 @@
 
         const middle = document.createElement("div");
         middle.className = "middle";
-        middle.textContent = p.symbol.toUpperCase();
+        middle.textContent = p.symbol[0].toUpperCase() + p.symbol.slice(1).toLowerCase();
 
         const bottom = document.createElement("div");
         bottom.className = "bottom";
