@@ -18,20 +18,23 @@
       flex-wrap: wrap;
     }
     .box {
-      width: 80px;
-      height: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      border-radius: 6px;
-      border: 2px solid #007bff;
-      background-color: #e6f0ff;
-      color: #007bff;
-      font-weight: bold;
-      position: relative;
-    }
+  width: 80px;
+  height: 80px;
+  min-width: 60px;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 6px;
+  border: 2px solid #007bff;
+  background-color: #e6f0ff;
+  color: #007bff;
+  font-weight: bold;
+  position: relative;
+  flex: 1 0 auto;
+}
     .box .top {
       position: absolute;
       top: 4px;
@@ -56,6 +59,7 @@
       margin: 0 auto;
       padding: 1rem;
       text-align: center;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -70,9 +74,6 @@
 
   <div id="result"></div>
 </div>
-
-<input type="text" id="wordInput" placeholder="Enter a word">
-<button onclick="generate()">Generate</button>
 
 <div id="result"></div>
 
