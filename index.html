@@ -113,22 +113,25 @@ let unmatched = {};
         found = true;
       }
 
-      
       if (!found) {
-        const lower = word[index];
-        if (unmatched[lower]) {
-          const fake = unmatched[lower];
-          path.push({ symbol: fake.symbol, number: fake.number, name: fake.name });
-        } else {
-          path.push({ symbol: word[index], unmatched: true });
-        }
-    
-        path.push({ symbol: word[index], unmatched: true });
-        backtrack(index + 1, path);
-        path.pop();
-      }
-    }
+  const lower = word[index];
+  let pushed = false;
 
+  if (unmatched[lower]) {
+    const fake = unmatched[lower];
+    path.push({ symbol: fake.symbol, number: fake.number, name: fake.name, unmatched: true, fake: true });
+    pushed = true;
+  } else {
+    path.push({ symbol: word[index], unmatched: true });
+    pushed = true;
+  }
+
+  if (pushed) {
+    backtrack(index + 1, path);
+    path.pop();
+  }
+}
+      
     backtrack(0, []);
 
     if (allPaths.length === 0) {
