@@ -8,7 +8,7 @@ body {
 }
 
 body.dark-mode {
-  background: url('nighttime.png') no-repeat center center fixed;
+  background: url('nighttime.PNG') no-repeat center center fixed;
   background-size: cover;
 
 .box {
