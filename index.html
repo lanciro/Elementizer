@@ -113,9 +113,12 @@ function playSound() {
         result.appendChild(optionLabel);
       }
 
-      const row = document.createElement("div");
-      row.className = "d-flex flex-wrap justify-content-center gap-2 mb-3 fade-in";
-      row.style.setProperty('--delay', `${index * 0.3}s`);
+      const card = document.createElement("div");
+card.className = "card shadow-sm p-3 mb-4 fade-in";
+card.style.setProperty('--delay', `${index * 0.3}s`);
+
+const row = document.createElement("div");
+row.className = "d-flex flex-wrap justify-content-center gap-2";
 
       path.forEach(p => {
         const box = document.createElement("div");
@@ -139,7 +142,8 @@ function playSound() {
         row.appendChild(box);
       });
 
-      result.appendChild(row);
+      card.appendChild(row);
+result.appendChild(card);
     });
   document.getElementById("wordInput").addEventListener("keydown", function(e) {
   if (e.key === "Enter") {
