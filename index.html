@@ -97,7 +97,7 @@ function playSound() {
 
     if (allPaths.length > 1) {
       const msg = document.createElement("p");
-      msg.className = "text-center fw-semibold text-info";
+      msg.className = "result-heading";
       msg.textContent = "Looks like there are multiple ways to spell this!";
       result.appendChild(msg);
     }
@@ -105,7 +105,7 @@ function playSound() {
     allPaths.forEach((path, index) => {
       if (allPaths.length > 1) {
         const optionLabel = document.createElement("p");
-        optionLabel.className = "text-center fw-bold text-primary mt-4";
+        optionLabel.className = "result-heading";
         optionLabel.textContent = `Option ${index + 1}`;
         result.appendChild(optionLabel);
       }
