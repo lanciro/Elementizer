@@ -30,6 +30,12 @@
 <script>
   let official = {};
   let nonofficial = {};
+  const chime = new Audio("sound1.wav");
+
+function playSound() {
+  chime.currentTime = 0; // rewind if user clicks fast
+  chime.play();
+}
 
   async function generate() {
     if (Object.keys(official).length === 0 || Object.keys(nonofficial).length === 0) {
@@ -42,6 +48,7 @@
     const word = document.getElementById("wordInput").value.toLowerCase();
     const result = document.getElementById("result");
     result.innerHTML = "";
+    playSound();
 
     const allPaths = [];
 
