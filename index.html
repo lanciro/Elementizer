@@ -12,13 +12,17 @@
     <div>
       <h1 class="mt-4 mb-3">Element Name Generator</h1>
       <p class="text-muted mb-4">Spell any word using periodic-style elements</p>
+      <!-- Input field -->
+<div class="mb-3" style="max-width: 500px; margin: 0 auto;">
+  <input type="text" class="form-control text-center" id="wordInput" placeholder="Enter a word">
+</div>
+
+<!-- Buttons row -->
+<div class="d-flex justify-content-center gap-2 mb-4">
+  <button class="btn btn-primary" onclick="generate()">Generate</button>
+  <button class="btn btn-outline-secondary" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+</div>
       
-      <div class="input-group mb-3" style="max-width: 400px; margin: 0 auto;">
-        <input type="text" class="form-control" id="wordInput" placeholder="Enter a word">
-        <button class="btn btn-primary" onclick="generate()">Generate</button>
-      </div>
-      
-      <button class="btn btn-outline-secondary btn-sm mb-4" onclick="toggleDarkMode()">Toggle Dark Mode</button>
       <div id="result"></div>
     </div>
   </main>
