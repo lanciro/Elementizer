@@ -140,3 +140,13 @@ body.dark-mode .result-heading {
   opacity: 1;
   pointer-events: auto;
 }
+
+body,
+.card,
+.box,
+.glass,
+.btn,
+input,
+.toast-message {
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.4s ease;
+}
