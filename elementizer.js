@@ -132,15 +132,34 @@ async function generate() {
   });
 
 }
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000); // hide after 3s
+}
+
 function downloadAsPng(id) {
   const element = document.getElementById(id);
 
   domtoimage.toPng(element)
     .then(function (dataUrl) {
-      const link = document.createElement("a");
-      link.download = `${id}.png`;
-      link.href = dataUrl;
-      link.click();
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        showToast("Tap and hold the image to save it to your photos.");
+        const win = window.open();
+        win.document.write('<title>Save this image</title>');
+        win.document.write('<img src="' + dataUrl + '" style="max-width:100%; display:block; margin:auto;"/>');
+      } else {
+        const link = document.createElement("a");
+        link.download = `${id}.png`;
+        link.href = dataUrl;
+        link.click();
+      }
     })
     .catch(function (error) {
       console.error("Download failed:", error);
