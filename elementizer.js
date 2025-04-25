@@ -151,10 +151,16 @@ function downloadAsPng(id) {
 
       if (isMobile) {
         showToast("Tap and hold the image to save it to your photos.");
-        const win = window.open();
-        win.document.write('<title>Save this image</title>');
-        win.document.write('<img src="' + dataUrl + '" style="max-width:100%; display:block; margin:auto;"/>');
-      } else {
+
+        // Delay just a little to allow toast to show, then open the image
+        setTimeout(() => {
+          const newTab = window.open(dataUrl, '_blank');
+          if (!newTab) {
+            showToast("Popup blocked! Please enable popups in your browser.");
+          }
+        }, 500);
+      }
+      else {
         const link = document.createElement("a");
         link.download = `${id}.png`;
         link.href = dataUrl;
