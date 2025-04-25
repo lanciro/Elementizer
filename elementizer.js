@@ -147,28 +147,17 @@ function downloadAsPng(id) {
 
   domtoimage.toPng(element)
     .then(function (dataUrl) {
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const link = document.createElement("a");
+      link.download = `${id}.png`;
+      link.href = dataUrl;
+      link.click();
 
-      if (isMobile) {
-        showToast("Tap and hold the image to save it to your photos.");
-
-        // Delay just a little to allow toast to show, then open the image
-        setTimeout(() => {
-          const newTab = window.open(dataUrl, '_blank');
-          if (!newTab) {
-            showToast("Popup blocked! Please enable popups in your browser.");
-          }
-        }, 500);
-      }
-      else {
-        const link = document.createElement("a");
-        link.download = `${id}.png`;
-        link.href = dataUrl;
-        link.click();
-      }
+      // ✅ Show confirmation toast
+      showToast("✅ Successfully downloaded as PNG");
     })
     .catch(function (error) {
       console.error("Download failed:", error);
+      showToast("❌ Download failed. Try again.");
     });
 }
 
