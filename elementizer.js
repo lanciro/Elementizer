@@ -83,9 +83,15 @@ async function generate() {
       result.appendChild(optionLabel);
     }
 
-    const card = document.createElement("div");
-    card.className = "card glass p-3 mb-4 fade-in";
-    card.style.setProperty('--delay', `${index * 0.3}s`);
+    const containerId = `result-option-${index + 1}`;
+    const wrapper = document.createElement("div");
+    wrapper.id = containerId;
+    wrapper.className = "card glass p-3 mb-4 fade-in";
+    wrapper.style.setProperty('--delay', `${index * 0.3}s`);
+    wrapper.style.cursor = "pointer";
+    wrapper.title = "Click to download this as PNG";
+    wrapper.onclick = () => downloadAsPng(containerId);
+
 
     const row = document.createElement("div");
     row.className = "d-flex flex-wrap justify-content-center gap-2";
@@ -112,8 +118,12 @@ async function generate() {
       row.appendChild(box);
     });
 
-    card.appendChild(row);
-    result.appendChild(card);
+    wrapper.appendChild(row);
+    result.appendChild(wrapper);
+
+
+
+
   });
   document.getElementById("wordInput").addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
@@ -122,6 +132,23 @@ async function generate() {
   });
 
 }
+function downloadAsPng(id) {
+  const element = document.getElementById(id);
+
+  domtoimage.toPng(element)
+    .then(function (dataUrl) {
+      const link = document.createElement("a");
+      link.download = `${id}.png`;
+      link.href = dataUrl;
+      link.click();
+    })
+    .catch(function (error) {
+      console.error("Download failed:", error);
+    });
+}
+
+
+
 
 function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
