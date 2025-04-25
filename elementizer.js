@@ -93,7 +93,7 @@ async function generate() {
       if (allPaths.length > 1) {
         const optionLabel = document.createElement("p");
         optionLabel.className = "result-heading";
-        optionLabel.textContent = `Option ${index + 1}`;
+        optionLabel.textContent = `Compound ${index + 1}`;
         result.appendChild(optionLabel);
       }
 
